@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Laundry</title></head>
+<body>
+<h2>Create Order</h2>
+<input id="name" placeholder="Name"><br><br>
+<input id="phone" placeholder="Phone"><br><br>
+<button onclick="createOrder()">Create</button>
+
+<script>
+async function createOrder() {
+  const res = await fetch("http://localhost:3000/orders", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      customerName: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
+      garments: [{type: "Shirt", quantity: 1}]
+    })
+  });
+  const data = await res.json();
+  alert("Order Created: " + data.id);
+}
+</script>
+</body>
+</html>
