@@ -128,5 +128,4 @@ Each order supports:
 ### Dashboard
 ![Dashboard](dashboard.png)
 
-### Live App
-![Live App](website.png)
+
